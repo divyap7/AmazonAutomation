@@ -55,7 +55,7 @@ public class SearchPage extends ActionLib {
 	WebElement clickAndGo;
 
 	@FindBy(css = "div#suggestions>div")
-	List<WebElement> suggestionList;
+	List<WebElement> suggestionsList;
 
 	@FindBy(xpath = "(//div[@id='search']//div//span)[3]")
 	WebElement getItemDisplayed;
