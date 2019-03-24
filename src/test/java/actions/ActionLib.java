@@ -26,8 +26,8 @@ import testBase.TestBase;
 
 public class ActionLib extends TestBase {
 	private final static Logger logger = LoggerFactory.getLogger(ActionLib.class);
-	  private static JavascriptExecutor js;
-	  static String pageLoadStatus = null;
+	private static JavascriptExecutor js;
+	static String pageLoadStatus = null;
 
 	public boolean isElementPresent(By element) {
 
@@ -87,10 +87,10 @@ public class ActionLib extends TestBase {
 				driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
 				try {
 					driver.findElement(By.xpath("//i[contains(@class,'spinner')]"));
-					// System.out.println("Testing 1");
+
 					return false;
 				} catch (Exception e) {
-					// System.out.println("Testing 2");
+
 					return true;
 				} finally {
 					driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
@@ -101,14 +101,14 @@ public class ActionLib extends TestBase {
 
 		wait.until(predicate);
 	}
-	
-	  public void waitForPageToLoad() {
-		    do {
-		      js = (JavascriptExecutor) driver;
-		      pageLoadStatus = (String)js.executeScript("return document.readyState");
-		     
-		    } while ( !pageLoadStatus.equals("complete") );
-		   logger.info("Page has loaded successfully");
-		  }
+
+	public void waitForPageToLoad() {
+		do {
+			js = (JavascriptExecutor) driver;
+			pageLoadStatus = (String) js.executeScript("return document.readyState");
+
+		} while (!pageLoadStatus.equals("complete"));
+		logger.info("Page has loaded successfully");
+	}
 
 }
